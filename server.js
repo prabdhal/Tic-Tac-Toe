@@ -5,6 +5,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 const fs = require('fs');
 
+app.use(express.static(__dirname + '/public'));
+
 app.get('/', (req, res) => {
   res.writeHead(200, { 'content-type': 'text/html' });
   fs.createReadStream('index.html').pipe(res);
